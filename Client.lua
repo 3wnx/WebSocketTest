@@ -108,5 +108,4 @@ local function connect()
 end
 
 -- ── Entry ───────────────────────────────────────────────────────────────
-Players.LocalPlayer.CharacterAdded:Wait()
 connect()
