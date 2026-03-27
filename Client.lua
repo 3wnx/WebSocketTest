@@ -31,11 +31,11 @@ local LOG_TYPE_MAP = {
 local function onLogMessage(msg, msgType)
     send({
         type = "Broadcast",
-        value = {
+        value = HttpService:JSONEncode({
             type    = "Log",
             logType = LOG_TYPE_MAP[msgType] or "Info",
             value   = msg,
-        }
+        })
     })
 end
 
