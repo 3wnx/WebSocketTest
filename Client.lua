@@ -65,6 +65,8 @@ local function onMessage(rawMsg)
         return
     end
 
+    print(rawMsg)
+
     if data.type == "Execution" and type(data.value) == "string" and #data.value > 0 then
         local fn, compileErr = loadstring(data.value)
 
