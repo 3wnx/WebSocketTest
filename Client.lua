@@ -59,16 +59,12 @@ env.warn  = fwdWarn
 
 -- ── Message handler ─────────────────────────────────────────────────────
 local function onMessage(rawMsg)
-
-    print(rawMsg)
     
     local ok, data = pcall(HttpService.JSONDecode, HttpService, rawMsg)
     if not ok or type(data) ~= "table" then
         warn("[WebSocket] Invalid JSON: " .. rawMsg)
         return
     end
-
-    print(data)
 
     if data.type == "Execution" and type(data.value) == "string" and #data.value > 0 then
         local fn, compileErr = loadstring(data.value)
